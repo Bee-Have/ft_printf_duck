@@ -4,13 +4,13 @@ int		main()
 {
 	int		ret;
 	int		ret2;
-	char	c;
+	char	*freaking_long;
 
 	ret = 0;
 	ret2 = 0;
 
-	ret = ft_printf("|%-020..-.5%|\n");
-	ret2 = printf("|%-020..-.5%|\n");
+	ret = printf("|%05.7%|\n");
+	ret2 = ft_printf("|%05.7%|\n");
 	printf("57[%d]=[%d]\n", ret, ret2);
 	return (0);
 }

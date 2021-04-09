@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 14:51:49 by amarini-          #+#    #+#             */
-/*   Updated: 2021/04/09 16:18:25 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/04/09 16:37:55 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,6 @@ void	flags_register(t_list **list, char *str, va_list args, int *i)
 {
 	while (str[(*i)] != '\0')
 	{
-		//printf("flag[%c]\n", (*list)->flag);
 		if ((*list)->flag != str[(*i)])
 		{
 			if (str[(*i)] == '-' || str[(*i)] == '0')
@@ -59,9 +58,9 @@ void	flags_register(t_list **list, char *str, va_list args, int *i)
 				(*list)->len_flag = 1;
 				(*i)++;
 				(*list)->length = padding_register(str, i, list, args);
-				if ((*list)->pad_char == '0' && (*list)->padding > (*list)->length
-					&& (*list)->neg_len == 0)
-					(*list)->pad_char = ' ';
+				//if ((*list)->pad_char == '0' && (*list)->padding > (*list)->length
+				//	&& (*list)->neg_len == 0)
+				//	(*list)->pad_char = ' ';
 			}
 			else
 				return ;
