@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 19:12:52 by amarini-          #+#    #+#             */
-/*   Updated: 2021/04/09 16:03:07 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/04/09 17:59:15 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef	struct			s_list
 	int		len_flag;
 	int		padding;
 	int		neg_padding;
-	int		null_char[2];
+	//int		null_char[2];
 	char	flag;
 	char	pad_char;
 	char	convert;
@@ -53,7 +53,7 @@ int						ft_len(char *str);
 char					*fill_str(char *str, char fill, int length);
 char					*str_cpy(char *content);
 char					*ft_strjoin(char *dst, char *src);
-int						return_to_percent(char *str, int *i, t_list **list);
+//int						return_to_percent(char *str, int *i, t_list **list);
 
 char					*strtrim(char *str, int length, int start);
 int						calc_pad(int padding, int length);
@@ -76,8 +76,5 @@ char					*ft_itoa(int n);
 int						ft_countnbr(long long int nbr, int base);
 unsigned long long int	ft_check_negative(long long int n);
 char					*ft_toupper(char *str);
-
-void					ft_write(char c);
-void					ft_putstr(char *str, int *null_char);
 
 #endif

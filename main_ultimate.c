@@ -341,6 +341,10 @@ void	test_d(int nb)
 	ret2 = printf("%010i\n",		nb);
 	if (ret != ret2)
 		printf("26[%d]=[%d]\n", ret, ret2);
+	ret = ft_printf("ft_printf = [%d]\n",			42);
+	ret2 = printf("   printf = [%d]\n",			42);
+	if (ret != ret2)
+		printf("0[%d]=[%d]\n", ret, ret2);
 }
 
 void	test_u(unsigned long u)

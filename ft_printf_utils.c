@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 18:02:45 by amarini-          #+#    #+#             */
-/*   Updated: 2021/04/09 15:54:58 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/04/09 17:39:50 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,8 @@ int		analyse_behavior(char *str, char **rest, int *i, va_list args)
 
 	result = 0;
 	(*i)++;
-	ft_putstr((*rest), NULL);
+	if ((*rest)[0] != '\0')
+		write(1, (*rest), ft_len((*rest)));
 	if (str_cmp(str[(*i)], NULL, "cspdiuxX%-0.*123456789") == 1)
 		result += data_managment(str, i, args) + ft_len((*rest));
 	else if ((*i) >= 1)
@@ -37,13 +38,13 @@ int		end_rest(char *rest)
 	if (rest[0] != '\0')
 	{
 		result = ft_len(rest);
-		ft_putstr(rest, NULL);
+		write(1, rest, ft_len(rest));
 	}
 	free(rest);
 	return (result);
 }
 
-void	find_null_char(t_list **list)
+/*void	find_null_char(t_list **list)
 {
 	int		i;
 
@@ -61,4 +62,4 @@ void	find_null_char(t_list **list)
 			i++;
 		}
 	return ;
-}
+}*/
