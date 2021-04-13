@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 21:49:48 by amarini-          #+#    #+#             */
-/*   Updated: 2021/04/09 16:03:29 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/04/13 10:06:19 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_list		*init_struct(void)
 	list->len_flag = 0;
 	list->padding = 0;
 	list->neg_padding = 0;
+	list->null_char = 0;
 	list->pad_char = ' ';
 	list->convert = 'a';
 	list->flag = 'a';

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:09:48 by amarini-          #+#    #+#             */
-/*   Updated: 2021/04/09 17:59:03 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/04/13 11:51:23 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	*str_cpy(char *content)
 	return (result);
 }
 
-char	*ft_strjoin(char *dst, char *src)
+char	*ft_strjoin(char *dst, char *src, int null_char)
 {
 	char	*result;
 	int		i;
@@ -73,16 +73,22 @@ char	*ft_strjoin(char *dst, char *src)
 		return (src);
 	i = 0;
 	len = ft_len(dst) + ft_len(src);
+	if (null_char == 1)
+		len += 1;
 	result = (char *)malloc((len + 1) * sizeof(char));
 	if (!result)
 		return (NULL);
 	result[len] = '\0';
 	while (i < len)
 	{
-		if (i < ft_len(dst))
+		if (i < ft_len(dst) || (null_char == 1 && i < 1))
 			result[i] = dst[i];
-		else
+		else if (null_char == 0)
 			result[i] = src[i - ft_len(dst)];
+		else if (null_char == 1 && dst[0] == '\0')
+			result[i] = src[i - 1];
+		else
+			result[i] = src[0];
 		i++;
 	}
 	free(dst);
@@ -90,14 +96,3 @@ char	*ft_strjoin(char *dst, char *src)
 	free(src);
 	return (result);
 }
-
-/*int		return_to_percent(char *str, int *i, t_list **list)
-{
-	while (str_cmp(str[(*i)], NULL, "%-0.*") == 1)
-		(*i)--;
-	write(1, "%", 1);
-	free((*list)->prefix);
-	free((*list)->print);
-	free((*list));
-	return (1);
-}*/

@@ -10,12 +10,6 @@ int		main(int ac, char **av)
 	printf ("\033[33;01m	Pruebas \033[32;01mChar \033[00m\n");
 
 	printf("=========================\n");
-	printf("		(1) Prueba char [c]\n");
-	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%c]\n", 'c'));
-	printf("valeur de retour = [%d]\n", printf("   printf = [%c]\n", 'c'));
-	printf("=========================\n");
-
-	printf("=========================\n");
 	printf("		(2) Prueba char [*c] {12} et [*c] {-12}\n");
 	printf("valeur de retour = [%d] et [%d]\n", ft_printf("ft_printf = [%*c] ", 12, 'c'), ft_printf("|| ft_printf(2) = [%*c]\n", -12, 'c'));
 	printf("valeur de retour = [%d] et [%d]\n", printf("   printf = [%*c] ", 12, 'c'), printf("||    printf(2) = [%*c]\n", -12, 'c'));
@@ -40,19 +34,6 @@ int		main(int ac, char **av)
 	printf("		(5) Prueba char [-*.c] {0}\n");
 	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%-*.c]\n", 10, 'c'));
 	printf("valeur de retour = [%d]\n", printf("   printf = [%-*.c]\n", 10, 'c'));
-	printf("=========================\n");
-
-
-	printf("=========================\n");
-	printf("		(6) Prueba char [0*.c] {2} no definido\n");
-	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%0*.c]\n", 2, 'c'));
-//	printf("valeur de retour = [%d]\n", printf("   printf = [%0*.c]\n", 2, 'c'));
-	printf("=========================\n");
-
-	printf("=========================\n");
-	printf("		(7) Prueba char [.2c] {2} no definido\n");
-	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%.2c]\n", 'c'));
-//	printf("valeur de retour = [%d]\n", printf("   printf = [%.2c]\n", 'c'));
 	printf("=========================\n");
 
 //	pruebas string
@@ -383,24 +364,8 @@ int		main(int ac, char **av)
 	printf("valeur de retour = [%d]\n", printf("   printf = [%10.4s]\n", NULL));
 	printf("=========================\n");
 
-	printf("=========================\n");
-	printf("		     Prueba string [d] {NULL} indefinido\n");
-	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%d]\n", NULL));
-//	printf("valeur de retour = [%d]\n", printf("   printf = [%d]\n", NULL));
-	printf("=========================\n");
-
-
 	ft_printf("ft_printf = [%--*.*d]\n", 10, 5, 42);
 	printf("   printf = [%--*.*d]\n", 10, 5, 42);
-
-
-	printf("=========================\n");
-	printf("		(5) Prueba numeros (-*.38) {35}\n");
-	printf("valeur de retour = [%d]\n", ft_printf("ft_printf = [%10]\n"));
-//	printf("valeur de retour = [%d]\n", printf("   printf = [%10]\n"));
-	printf("=========================\n");
-	printf ("\033[37;01m====================================\033[00m\n");
-	printf ("\033[34;01m		Bye\n\033[00m");
 
 //	while (1);
 	return (0);

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/07 14:51:49 by amarini-          #+#    #+#             */
-/*   Updated: 2021/04/09 17:46:07 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/04/13 17:46:50 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,11 @@ int		padding_register(char *str, int *i, t_list **list, va_list args)
 		}
 		else if ((*list)->neg_padding == 0)
 			(*list)->pad_char = '0';
+		if (str[(*i)] == '0')
+		{
+			(*i)++;
+			return (0);
+		}
 	}
 	if (str[(*i)] == '*')
 	{
@@ -56,9 +61,8 @@ void	flags_register(t_list **list, char *str, va_list args, int *i)
 			(*list)->len_flag = 1;
 			(*i)++;
 			(*list)->length = padding_register(str, i, list, args);
-			//if ((*list)->pad_char == '0' && (*list)->padding > (*list)->length
-			//	&& (*list)->neg_len == 0)
-			//	(*list)->pad_char = ' ';
+			if ((*list)->neg_len == 0)
+				(*list)->pad_char = ' ';
 		}
 		else
 			return ;
@@ -116,7 +120,8 @@ void	flags_managment(t_list **list)
 	check_for_prefix(list, &prefix_used, 0);
 	if (prefix_used == 0)
 		free((*list)->prefix);
-	(*list)->length = ft_len((*list)->print);
-	if ((*list)->print && (*list)->length == 0 && (*list)->convert != 's')
+	if ((*list)->null_char == 0)
+		(*list)->length = ft_len((*list)->print);
+	if ((*list)->print && (*list)->length == 0 && (*list)->convert != 's' /*&& (*list)->len_flag == 0*/)
 		(*list)->length = 1;
 }

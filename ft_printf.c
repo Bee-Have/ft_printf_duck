@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/06 19:12:49 by amarini-          #+#    #+#             */
-/*   Updated: 2021/04/09 18:08:28 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/04/13 15:37:07 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,18 +52,12 @@ int		data_managment(char *str, int *i, va_list args)
 			(*i)--;
 	list->convert = str[(*i)];
 	list->print = convert_arg(str, args, *i);
-	/*if (list->convert == 'c' && list->print[0] == '\0')
-	{
-		list->null_char[0] = 1;
-		list->print[0] = 'N';
-	}
-	else
-		list->null_char[0] = 0;
-	*/
-	if (list->length != ft_len(list->print) /*&& list->len_flag == 0*/)
-		list->length = ft_len(list->print);
+	if (list->convert == 'c' && list->print[0] == '\0')
+		list->null_char = 1;
 	flags_managment(&list);
-	write(1, list->print, ft_len(list->print));
+	if (list->length != ft_len(list->print) /*&& list->len_flag == 0*/ && list->null_char == 0)
+		list->length = ft_len(list->print);
+	write(1, list->print, list->length);
 	result = list->length;
 	ft_free_list(&list);
 	return (result);
