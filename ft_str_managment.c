@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/19 17:09:48 by amarini-          #+#    #+#             */
-/*   Updated: 2021/04/13 11:51:23 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/04/14 14:15:05 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,18 +81,26 @@ char	*ft_strjoin(char *dst, char *src, int null_char)
 	result[len] = '\0';
 	while (i < len)
 	{
-		if (i < ft_len(dst) || (null_char == 1 && i < 1))
-			result[i] = dst[i];
-		else if (null_char == 0)
-			result[i] = src[i - ft_len(dst)];
-		else if (null_char == 1 && dst[0] == '\0')
-			result[i] = src[i - 1];
-		else
-			result[i] = src[0];
+		result[i] = join_util(dst, src, null_char, i);
 		i++;
 	}
 	free(dst);
-	dst = NULL;
 	free(src);
+	return (result);
+}
+
+char	join_util(char *dst, char *src, int null_char, int i)
+{
+	char	result;
+
+	result = '\0';
+	if (i < ft_len(dst) || (null_char == 1 && i < 1))
+		result = dst[i];
+	else if (null_char == 0)
+		result = src[i - ft_len(dst)];
+	else if (null_char == 1 && dst[0] == '\0')
+		result = src[i - 1];
+	else
+		result = src[0];
 	return (result);
 }

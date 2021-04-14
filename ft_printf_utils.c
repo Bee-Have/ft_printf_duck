@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/07 18:02:45 by amarini-          #+#    #+#             */
-/*   Updated: 2021/04/12 11:44:31 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/04/14 12:17:53 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,3 @@ int		end_rest(char *rest)
 	free(rest);
 	return (result);
 }
-
-/*void	find_null_char(t_list **list)
-{
-	int		i;
-
-	i = 0;
-	if ((*list)->print[0] == '\0' && (*list)->convert != 'c')
-		(*list)->length = 0;
-	if ((*list)->null_char[0] == 1)
-		while ((*list)->print[i] != '\0')
-		{
-			if ((*list)->print[i] == 'N')
-			{
-				(*list)->null_char[1] = i;
-				break ;
-			}
-			i++;
-		}
-	return ;
-}*/

@@ -6,7 +6,7 @@
 /*   By: amarini- <amarini-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/13 13:07:24 by amarini-          #+#    #+#             */
-/*   Updated: 2021/04/12 12:40:33 by amarini-         ###   ########.fr       */
+/*   Updated: 2021/04/14 14:51:11 by amarini-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	register_negative_padding(char *str, int *i, t_list **list, int *nbr)
 		else
 			(*list)->neg_len = 1;
 	}
-	if (str[(*i)] == '-')
+	while (str[(*i)] == '-')
 		(*i)++;
 	return ;
 }
@@ -92,5 +92,23 @@ int		str_cmp(char c, char *str, char *cmp)
 				return (1);
 			i++;
 		}
+	return (0);
+}
+
+int		zero_flag_check(int *i, char *str, t_list **list)
+{
+	(*i)++;
+	if ((str[(*i)] < '0' || str[(*i)] > '9') && str[(*i)] != '*')
+	{
+		(*i)--;
+		return (1);
+	}
+	else if ((*list)->neg_padding == 0)
+		(*list)->pad_char = '0';
+	if (str[(*i)] == '0')
+	{
+		(*i)++;
+		return (1);
+	}
 	return (0);
 }
